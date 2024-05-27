@@ -1,0 +1,63 @@
+class ArCondicionado:
+    def __init__(self):
+        self.temperatura_atual = 25  # Temperatura inicial
+        self.ligado = False
+
+    def aumentar_temperatura(self):
+        if self.temperatura_atual < 30:  # Limite máximo de temperatura
+            self.temperatura_atual += 1
+            print("Temperatura aumentada para", self.temperatura_atual, "graus Celsius.")
+        else:
+            print("Limite máximo de temperatura atingido (30°C).")
+
+    def diminuir_temperatura(self):
+        if self.temperatura_atual > 16:  # Limite mínimo de temperatura
+            self.temperatura_atual -= 1
+            print("Temperatura diminuída para", self.temperatura_atual, "graus Celsius.")
+        else:
+            print("Limite mínimo de temperatura atingido (16°C).")
+
+    def ligar_desligar(self):
+        if self.ligado:
+            self.ligado = False
+            print("Ar condicionado desligado.")
+        else:
+            self.ligado = True
+            print("Ar condicionado ligado.")
+
+    def mostrar_estado(self):
+        estado = "ligado" if self.ligado else "desligado"
+        print("Ar condicionado está", estado, "com a temperatura configurada para", self.temperatura_atual, "graus Celsius.")
+
+
+# Função principal para interagir com o usuário
+def main():
+    ar_condicionado = ArCondicionado()
+
+    while True:
+        print("\nControle de Ar Condicionado")
+        print("1. Aumentar temperatura")
+        print("2. Diminuir temperatura")
+        print("3. Ligar/Desligar")
+        print("4. Mostrar estado")
+        print("5. Sair")
+
+        opcao = input("Escolha uma opção: ")
+
+        if opcao == '1':
+            ar_condicionado.aumentar_temperatura()
+        elif opcao == '2':
+            ar_condicionado.diminuir_temperatura()
+        elif opcao == '3':
+            ar_condicionado.ligar_desligar()
+        elif opcao == '4':
+            ar_condicionado.mostrar_estado()
+        elif opcao == '5':
+            print("Saindo do programa...")
+            break
+        else:
+            print("Opção inválida. Tente novamente.")
+
+
+if __name__ == "__main__":
+    main()
